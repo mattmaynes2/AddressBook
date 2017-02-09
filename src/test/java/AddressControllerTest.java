@@ -1,33 +1,37 @@
 import buddy.AddressController;
+
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.runner.RunWith;
+
 import org.springframework.http.MediaType;
-import org.springframework.test.context.web.WebAppConfiguration;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
-/**
- * Created by mattmaynes on 2/2/2017.
- */
-@WebAppConfiguration
-public class AddressControllerTest {
-    @Autowired
-    private WebApplicationContext webApplicationContext;
-    private MockMvc mockMvc;
 
-    @Before
-    public void setup() {
-        mockMvc = MockMvcBuilders.standaloneSetup(new AddressController()).build();
-    }
+import org.springframework.test.context.junit4.SpringRunner;
+
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = AddressController.class)
+@AutoConfigureMockMvc
+public class AddressControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
 
     @Test
     public void validateAdd() throws Exception {
-        mockMvc.perform(post("/add", "name=Tom&phone=111"))
+        mockMvc.perform(post("/add?name=Tom&phone=111"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(jsonPath("$.name").value("Tom"))
