@@ -1,4 +1,4 @@
-import buddy.BuddyInfo;
+package buddy;
 
 import static org.junit.Assert.*;
 

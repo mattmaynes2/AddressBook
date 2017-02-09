@@ -3,22 +3,17 @@ package buddy; /**
  */
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.boot.ApplicationRunner;
 
 @SpringBootApplication
+@EnableAutoConfiguration
 public class SpringLauncher {
     public static void main(String[] args) {
-        //String[] contextPaths = new String[]{"app-context.xml"};
-        //new ClassPathXmlApplicationContext(contextPaths);
-        SpringApplication.run(SpringLauncher.class);
+        SpringApplication.run(SpringLauncher.class, args);
 
-    }
-
-    @Bean
-    public ApplicationRunner build () {
-        return (args) -> {};
     }
 }

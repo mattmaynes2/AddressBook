@@ -1,5 +1,4 @@
-import buddy.AddressBook;
-import buddy.BuddyInfo;
+package buddy;
 
 import javax.persistence.*;
 import java.util.List;

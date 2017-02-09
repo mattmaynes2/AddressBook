@@ -17,8 +17,11 @@ public class AddressController {
 
     @Autowired
     private AddressRepository bookRepo;
+
     @Autowired
     private BuddyRepository buddyRepo;
+
+    @Autowired
     private AddressBook book;
 
     @PostMapping("/add")
