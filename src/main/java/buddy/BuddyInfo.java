@@ -15,10 +15,12 @@ public class BuddyInfo {
     private Integer id;
     private String name;
     private String phoneNumber;
+    private String address;
 
     protected BuddyInfo () {
         this.phoneNumber = "";
         this.name = "";
+        this.address = "";
     }
 
     public BuddyInfo (String name) {
@@ -50,6 +52,10 @@ public class BuddyInfo {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public String getAddress() { return this.address; }
+
+    public void setAddress (String address) { this.address = address; }
 
     public boolean equals (BuddyInfo other) {
         return this.name.equals(other.name) &&

@@ -24,10 +24,16 @@ public class AddressController {
     @PostMapping("/add")
     public BuddyInfo add (
             @RequestParam("name") String name,
-            @RequestParam("phone") String phone
+            @RequestParam("phone") String phone,
+            @RequestParam(value = "address", required = false) String address
     ) {
         AddressBook book = getBook();
         BuddyInfo info = new BuddyInfo(name, phone);
+
+        if (address != null) {
+            info.setAddress(address);
+        }
+
         book.addContact(info);
         bookRepo.save(book);
         return info;

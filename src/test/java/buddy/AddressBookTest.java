@@ -6,11 +6,6 @@ import java.util.List;
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by mattmaynes on 1/12/2017.
- */
-
-
 
 public class AddressBookTest {
 
