@@ -3,10 +3,22 @@
     <head>
         <title>Address Book</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="index.js"></script>
     </head>
     <body>
         <h1>Address Books</h1>
+        <div id="js-content" style="display:none;">
+            <h6>Using JavaScript!</h6>
+            <select id="book-list"></select>
+            <button id="book-view">View Book</button>
+            <div>
+                Book Name: <input type="text" id="book-name" />
+                <button id="book-create">Create</button>
+            </div>
+        </div>
         <form action="/form/book/view" method="GET">
+            <h6>No JavaScript Enabled!</h6>
             <select name="bookId">
                 <option th:each="b:${books}" th:text="${b.name}" th:value="${b.id}"></option>
             </select>
