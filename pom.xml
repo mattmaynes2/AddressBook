@@ -11,6 +11,11 @@
     <groupId>emex</groupId>
     <artifactId>AddressBook</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.1.RELEASE</version>
+    </parent>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -43,6 +48,11 @@
             <version>RELEASE</version>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>RELEASE</version>
@@ -71,15 +81,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>1.5.1.RELEASE</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/java/resources</directory>
+            </resource>
+        </resources>
     </build>
     <repositories>
         <repository>

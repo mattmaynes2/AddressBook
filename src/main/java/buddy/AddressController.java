@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Created by mattmaynes on 2/2/2017.
- */
 @RestController
 public class AddressController {
 
@@ -49,11 +46,6 @@ public class AddressController {
         buddyRepo.delete(info);
         bookRepo.save(book);
         return info;
-    }
-
-    @RequestMapping("/")
-    public List<BuddyInfo> list () {
-        return getBook().getContacts();
     }
 
     private AddressBook getBook () {
