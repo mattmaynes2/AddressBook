@@ -17,11 +17,18 @@ public class AddressBook {
     @GeneratedValue
     private Integer id;
 
+    private String name;
+
     @OneToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<BuddyInfo> contacts;
 
     public AddressBook () {
+        this("");
+    }
+
+    public AddressBook (String name) {
         this.contacts = new ArrayList<BuddyInfo>();
+        this.name = name;
     }
 
     public void addContact (BuddyInfo contact) {
@@ -35,6 +42,14 @@ public class AddressBook {
         return this.contacts;
     }
 
+    public String getName () {
+        return this.name;
+    }
+
+    public void setName (String name) {
+        this.name = name;
+    }
+
     public String toString () {
         StringBuffer buff = new StringBuffer();
         for (BuddyInfo buddy : this.contacts) {
@@ -43,6 +58,11 @@ public class AddressBook {
         return buff.toString();
     }
 
+    public Integer getId() {
+        return this.id;
+    }
+
+    @Override
     public boolean equals (Object other) {
         if (other instanceof AddressBook) {
             AddressBook book = (AddressBook) other;

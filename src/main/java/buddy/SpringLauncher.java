@@ -1,6 +1,5 @@
-package buddy; /**
- * Created by mattmaynes on 1/26/2017.
- */
+package buddy;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

@@ -5,6 +5,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <h1>Hello, World!</h1>
+        <h1>Address Books</h1>
+        <form action="/form/book/view" method="GET">
+            <select name="bookId">
+                <option th:each="b:${books}" th:text="${b.name}" th:value="${b.id}"></option>
+            </select>
+            <input type="submit" value="View Book" />
+        </form>
+        <form action="/form/book/create" method="POST">
+            Book Name:
+            <input type="text" name="name" />
+            <input type="submit" value="Create" />
+        </form>
     </body>
 </html>

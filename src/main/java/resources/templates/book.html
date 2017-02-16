@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title th:text="'Book ' + ${book.name}"></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <h1 th:text="'Book ' + ${book.name}"></h1>
+        <ul>
+            <li th:each="c:${book.contacts}" th:text="${c.name} + ' | ' + ${c.phoneNumber} + ' | ' + ${c.address}" th:value="${c.id}">
+            </li>
+        </ul>
+        <form action="/form/contact/create" method="POST">
+            <input type="text" th:value="${book.id}" name="bookId" style="display:none;" />
+            Name: <input type="text" name="name" /> <br/>
+            Phone Number: <input type="text" name="phone" /> <br/>
+            Address: <input type="text" name="address" /> <br/>
+            <input type="submit" value="Create Contact" />
+        </form>
+    </body>
+</html>

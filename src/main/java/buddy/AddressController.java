@@ -1,10 +1,10 @@
 package buddy;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.ArrayList;
 
 @RestController
 public class AddressController {
@@ -15,8 +15,26 @@ public class AddressController {
     @Autowired
     private BuddyRepository buddyRepo;
 
-    @Autowired
     private AddressBook book;
+
+    @PostMapping("/book/create")
+    public AddressBook create (
+            @RequestParam("name") String name
+            ) {
+        AddressBook book = new AddressBook(name);
+        bookRepo.save(book);
+
+        return book;
+    }
+
+    @GetMapping("/book/list")
+    public List<AddressBook> list () {
+        final ArrayList<AddressBook> books = new ArrayList<AddressBook>();
+        bookRepo.findAll().forEach((b) -> { books.add(b); });
+        return books;
+    }
+
+
 
     @PostMapping("/add")
     public BuddyInfo add (
